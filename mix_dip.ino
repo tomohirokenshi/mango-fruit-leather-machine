@@ -150,3 +150,199 @@ void loop() {
     displayMainMenu();
   }
 }
+
+// Dispensing Function
+void dispenseFunc() {
+  lcd.clear();
+  lcd.setCursor(0, 0); lcd.print("How many tray? "); lcd.print(qtytray);
+  lcd.setCursor(0, 1); lcd.print("A: -1 Tray Mix Ratio");
+  lcd.setCursor(0, 2); lcd.print("B: +1 Tray Mix Ratio");
+  lcd.setCursor(0, 3); lcd.print("C: Confirm Selection");
+  while (1) {
+    lcd.setCursor(0, 0); lcd.print("How many tray? "); lcd.print(qtytray);
+    if (!digitalRead(btnA)) {
+      delay(200);
+      qtytray -= 1;
+      if (qtytray < 0) {
+        qtytray = 0;
+      }
+    }
+    if (!digitalRead(btnB)) {
+      delay(200);
+      qtytray += 1;
+      if (qtytray > 5) {
+        qtytray = 5;
+      }
+    }
+    if (!digitalRead(btnC)) {
+      if (qtytray == 0) {
+        delay(200);
+        lcd.clear();
+        lcd.setCursor(0, 0); lcd.print(title);
+        primerTubes();
+        break;
+      }
+      else {
+        delay(200);
+        lcd.clear();
+        lcd.setCursor(0, 0); lcd.print(title);
+        addIngredients();
+        break;
+      }
+    }
+  }
+  delay(500);
+  displayMainMenu();
+}
+
+// Primer Tubes
+void primerTubes() {
+  long totalDelay = 16000L + 6500L + 6800L;
+  long elapsedTime = 0;
+  long stepDelay = 100;
+  long numSteps;
+  long stepElapsedTime;
+
+  digitalWrite(wp1, LOW);
+  numSteps = 6500L / stepDelay;
+  stepElapsedTime = 6500L / numSteps;
+  for (long i = 0; i < numSteps; i++) {
+    elapsedTime += stepElapsedTime;
+    lcd.clear();
+    lcd.setCursor(0, 0); lcd.print(title);
+    lcd.setCursor(0, 1); lcd.print("      Priming...    ");
+    lcd.setCursor(0, 2); lcd.print("  Lemon Juice Tube  ");
+    lcd.setCursor(0, 3); lcd.print(" ");
+    lcd.setCursor(8, 3); lcd.print((elapsedTime * 100) / totalDelay);
+    lcd.setCursor(11, 3); lcd.print("%");
+    delay(stepDelay);
+  }
+  digitalWrite(wp1, HIGH);
+
+  digitalWrite(wp2, LOW);
+  numSteps = 16000L / stepDelay;
+  stepElapsedTime = 16000L / numSteps;
+  for (long i = 0; i < numSteps; i++) {
+    elapsedTime += stepElapsedTime;
+    lcd.clear();
+    lcd.setCursor(0, 0); lcd.print(title);
+    lcd.setCursor(0, 1); lcd.print("      Priming...    ");
+    lcd.setCursor(0, 2); lcd.print("     Pectin Tube    ");
+    lcd.setCursor(0, 3); lcd.print(" ");
+    lcd.setCursor(8, 3); lcd.print((elapsedTime * 100) / totalDelay);
+    lcd.setCursor(11, 3); lcd.print("%");
+    delay(stepDelay);
+  }
+  digitalWrite(wp2, HIGH);
+
+  digitalWrite(wp3, LOW);
+  numSteps = 6800L / stepDelay;
+  stepElapsedTime = 6800L / numSteps;
+  for (long i = 0; i < numSteps; i++) {
+    elapsedTime += stepElapsedTime;
+    lcd.clear();
+    lcd.setCursor(0, 0); lcd.print(title);
+    lcd.setCursor(0, 1); lcd.print("      Priming...    ");
+    lcd.setCursor(0, 2); lcd.print("   Sweetener Tube   ");
+    lcd.setCursor(0, 3); lcd.print(" ");
+    lcd.setCursor(8, 3); lcd.print((elapsedTime * 100) / totalDelay);
+    lcd.setCursor(11, 3); lcd.print("%");
+    delay(stepDelay);
+  }
+  digitalWrite(wp3, HIGH);
+
+  lcd.clear();
+  lcd.setCursor(0, 0); lcd.print(title);
+  lcd.setCursor(0, 1); lcd.print("  PRIMING OF TUBES  ");
+  lcd.setCursor(0, 2); lcd.print("      COMPLETE      ");
+  lcd.setCursor(0, 3); lcd.print(" ");
+  lcd.setCursor(8, 3); lcd.print((elapsedTime * 100) / totalDelay);
+  lcd.setCursor(11, 3); lcd.print("%");
+  delay(3000);
+}
+
+// Add Ingredients
+void addIngredients() {
+  long totalDelay = qtytray * (20000L + 6000L + 39500L);
+  long elapsedTime = 0;
+  long stepDelay = 100;
+  long numSteps;
+  long stepElapsedTime;
+
+  digitalWrite(wp1, LOW);
+  numSteps = (6000L * qtytray) / stepDelay;
+  stepElapsedTime = (6000L * qtytray) / numSteps;
+  for (long i = 0; i < numSteps; i++) {
+    elapsedTime += stepElapsedTime;
+    lcd.clear();
+    lcd.setCursor(0, 0); lcd.print(title);
+    lcd.setCursor(0, 1); lcd.print("    Dispensing...    ");
+    lcd.setCursor(0, 2); lcd.print("     Lemon Juice     ");
+    lcd.setCursor(0, 3); lcd.print(" ");
+    lcd.setCursor(8, 3); lcd.print((elapsedTime * 100) / totalDelay);
+    lcd.setCursor(11, 3); lcd.print("%");
+    delay(stepDelay);
+  }
+  digitalWrite(wp1, HIGH);
+
+  digitalWrite(wp2, LOW);
+  numSteps = (qtytray * 20000L) / stepDelay;
+  stepElapsedTime = (qtytray * 20000L) / numSteps;
+  for (long i = 0; i < numSteps; i++) {
+    elapsedTime += stepElapsedTime;
+    lcd.clear();
+    lcd.setCursor(0, 0); lcd.print(title);
+    lcd.setCursor(0, 1); lcd.print("    Dispensing...    ");
+    lcd.setCursor(0, 2); lcd.print("        Pectin       ");
+    lcd.setCursor(0, 3); lcd.print(" ");
+    lcd.setCursor(8, 3); lcd.print((elapsedTime * 100) / totalDelay);
+    lcd.setCursor(11, 3); lcd.print("%");
+    delay(stepDelay);
+  }
+  digitalWrite(wp2, HIGH);
+
+  digitalWrite(wp3, LOW);
+  numSteps = (qtytray * 39500L) / stepDelay;
+  stepElapsedTime = (qtytray * 39500L) / numSteps;
+  for (long i = 0; i < numSteps; i++) {
+    elapsedTime += stepElapsedTime;
+    lcd.clear();
+    lcd.setCursor(0, 0); lcd.print(title);
+    lcd.setCursor(0, 1); lcd.print("    Dispensing...    ");
+    lcd.setCursor(0, 2); lcd.print("      Sweetener      ");
+    lcd.setCursor(0, 3); lcd.print(" ");
+    lcd.setCursor(8, 3); lcd.print((elapsedTime * 100) / totalDelay);
+    lcd.setCursor(11, 3); lcd.print("%");
+    delay(stepDelay);
+  }
+  digitalWrite(wp3, HIGH);
+
+  lcd.clear();
+  lcd.setCursor(0, 0); lcd.print(title);
+  lcd.setCursor(0, 1); lcd.print(" ADDING INGREDIENTS ");
+  lcd.setCursor(0, 2); lcd.print("      COMPLETE      ");
+  lcd.setCursor(0, 3); lcd.print(" ");
+  lcd.setCursor(8, 3); lcd.print((elapsedTime * 100) / totalDelay);
+  lcd.setCursor(11, 3); lcd.print("%");
+  delay(3000);
+}
+
+// Display Main Menu
+void displayMainMenu() {
+  lcd.setCursor(0, 0); lcd.print(title);
+  lcd.setCursor(0, 1); lcd.print("A: Add Ingredients  ");
+  lcd.setCursor(0, 2); lcd.print("B: Start/Stop Mixing");
+  lcd.setCursor(0, 3); lcd.print("C: Start Dispensing ");
+}
+
+// Get Weight
+void getWeight() {
+  scale1.set_scale(calibration_factor);
+  float weight1 = scale1.get_units();
+  Serial.println("Reading 1: " + String(weight1, 3) + " kg");
+  scale2.set_scale(calibration_factor);
+  float weight2 = scale2.get_units();
+  Serial.println("Reading 2: " + String(weight2, 3) + " kg");
+  weight = (weight1 + weight2) / 2;
+  Serial.println("AVE Weight: " + String(weight, 3) + " kg");
+}
