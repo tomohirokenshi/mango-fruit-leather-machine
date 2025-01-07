@@ -121,14 +121,14 @@ void loop() {
 void preHeat() {
   timeNow = millis();
   lcd.clear();
-  lcd.setCursor(0, 1); lcd.print("T: "); lcd.print(temp, 2); lcd.print("C H: "); lcd.print(hum, 0); lcd.print("%");
-  lcd.setCursor(0, 0); lcd.print("PREHEATING");
+  lcd.setCursor(0, 0); lcd.print("T: "); lcd.print(temp, 2); lcd.print("C H: "); lcd.print(hum, 0); lcd.print("%");
+  lcd.setCursor(0, 1); lcd.print("PREHEATING");
   while (1) {
     if (millis() > timeNow + 1000) {
       temp = sht20.readTemperature();
       hum = sht20.readHumidity();
-      lcd.setCursor(0, 1); lcd.print("T: "); lcd.print(temp, 2); lcd.print("C H: "); lcd.print(hum, 0); lcd.print("%");
-      lcd.setCursor(0, 0); lcd.print("PREHEATING");
+      lcd.setCursor(0, 0); lcd.print("T: "); lcd.print(temp, 2); lcd.print("C H: "); lcd.print(hum, 0); lcd.print("%");
+      lcd.setCursor(0, 1); lcd.print("PREHEATING");
       timeNow = millis();
     }
     if (temp >= tempTH) {
@@ -196,7 +196,7 @@ void showTimer(int Minutes) {
       timeNow = millis();
       while (1) {
         lcd.setCursor(0, 0); lcd.print("DRYING DONE.  ");
-        lcd.setCursor(0, 1); lcd.print("DRYING DONE.  ");
+        lcd.setCursor(0, 1); lcd.print(" ");
         digitalWrite(buzzer, HIGH);
         delay(1000);
         digitalWrite(buzzer, LOW);
@@ -204,7 +204,7 @@ void showTimer(int Minutes) {
         digitalWrite(fans, LOW);
         break;
         if (!digitalRead(btnA) || !digitalRead(btnB) || !digitalRead(btnC)){
-          lcd.setCursor(0, 0); lcd.print("THANK YOU FOR   ");
+          lcd.setCursor(0, 0); lcd.print(" THANK YOU FOR  ");
           lcd.setCursor(0, 1); lcd.print("USING THE DEVICE");
           delay(2000);
           break;
