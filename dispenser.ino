@@ -124,5 +124,94 @@ void preHeat() {
   lcd.setCursor(0, 1); lcd.print("T: "); lcd.print(temp, 2); lcd.print("C H: "); lcd.print(hum, 0); lcd.print("%");
   lcd.setCursor(0, 0); lcd.print("PREHEATING");
   while (1) {
+    if (millis() > timeNow + 1000) {
+      temp = sht20.readTemperature();
+      hum = sht20.readHumidity();
+      lcd.setCursor(0, 1); lcd.print("T: "); lcd.print(temp, 2); lcd.print("C H: "); lcd.print(hum, 0); lcd.print("%");
+      lcd.setCursor(0, 0); lcd.print("PREHEATING");
+      timeNow = millis();
+    }
+    if (temp >= tempTH) {
+      lcd.clear();
+      break;
+    }
+    if (!digitalRead(btnC)) {
+      delay(200);
+      break;
+    }
+  } 
+}
+
+// Initialize Timer after the Desired Temperature is reached
+void showTimer(int Minutes) {
+  int Hours = floor(Minutes / 60);
+  Minutes = Minutes - (Hours * 60);
+  unsigned long lastTimerUpdate = millis();
+  int Seconds = 0;
+  lcd.clear();
+  timeNow = millis();
+  while (1) {
+    if (millis() > timeNow + 1000) {
+      int secondsPassed = (millis() - lastTimerUpdate) / 1000;
+      Seconds = Seconds - secondsPassed;
+      lastTimerUpdate = lastTimerUpdate + (secondsPassed * 1000);
+      temp = sht20.readTemperature();
+      hum = sht20.readHumidity();
+      timeNow = millis();
+    }
+    String sh = String(Hours);
+    String sm = String(Minutes);
+    String ss = String(Seconds);
+    if (Hours < 10) {
+      sh = "0" + sh;
+    }
+    if (Minutes < 10) {
+      sm = "0" + sm;
+    }
+    if (Seconds < 10) {
+      ss = "0" + ss;
+    }
+    String line1 = sh + ":" + sm + ":" + ss;
+
+    // Temperature Balance Function
+    if (temp > tempTH) {
+      digitalWrite(heater, LOW);
+    }
+    if (temp < tempTH - 5) {
+      digitalWrite(heater, HIGH);
+    }
+
+    // Display Values to LCD
+    lcd.setCursor(0, 0); lcd.print("T: "); lcd.print(temp, 2); lcd.print("C H: "); lcd.print(hum, 0); lcd.print("%");
+    lcd.setCursor(0, 1); lcd.print(line1); lcd.print(" ");
+    if (Seconds < 0) {
+      Seconds = 59;
+      Minutes --;
+      if (Minutes < 0) {
+        Minutes = 59;
+        Hours --;
+      }
+    }
+    if (Hours < 0) {
+      timeNow = millis();
+      while (1) {
+        lcd.setCursor(0, 0); lcd.print("DRYING DONE.  ");
+        lcd.setCursor(0, 1); lcd.print("DRYING DONE.  ");
+        digitalWrite(buzzer, HIGH);
+        delay(1000);
+        digitalWrite(buzzer, LOW);
+        digitalWrite(heater, LOW);
+        digitalWrite(fans, LOW);
+        break;
+        if (!digitalRead(btnA) || !digitalRead(btnB) || !digitalRead(btnC)){
+          lcd.setCursor(0, 0); lcd.print("THANK YOU FOR   ");
+          lcd.setCursor(0, 1); lcd.print("USING THE DEVICE");
+          delay(2000);
+          break;
+        }
+      }
+      lcd.clear();
+      break;
+    }
   }
 }
