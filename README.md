@@ -7,8 +7,9 @@ The machine demonstrated the ability to precisely dispense ingredients, signific
 ## Block Diagram
 <div align="center">
   <img src="https://via.placeholder.com/500" alt="Project Image" width="500">
+  <p>>Mixer & Dispenser Block Diagram</p
 </div>
-Mixer & Dispenser Block Diagram <br> <br>
+ <br> <br>
 
 <div align="center">
   <img src="https://via.placeholder.com/500" alt="Project Image" width="500">
