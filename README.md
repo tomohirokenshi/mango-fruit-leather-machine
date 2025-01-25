@@ -45,3 +45,7 @@ The MCU-Based Mango Fruit Leather Machine is designed to help mango farmers in P
 1. For the dispenser, it is recommended to use a solenoid valve or a post-mix dispensing system to achieve more precise control over the dispensing of raw materials.
 2. For the mixer, instead of relying solely on mixing, it is suggested to incorporate a filtering system or implement blending functionality into the machine's design.
 3. For the dehydrator, include an exhaust system to manage excess heat and moisture. Additionally, optimize the placement of the heating element and fan to ensure even distribution of heat.
+
+<div align="center">
+  <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Thesis%20Defended.jpg?raw=true" alt="Thesis Defended" width="500">
+</div>
