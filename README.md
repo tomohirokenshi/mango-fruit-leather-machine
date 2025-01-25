@@ -6,38 +6,39 @@ The machine demonstrated the ability to precisely dispense ingredients, signific
 
 ## Block Diagram
 <div align="center">
-  <img src="https://via.placeholder.com/500" alt="Project Image" width="500">
+  <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Mixer%20and%20Dispenser%20Block%20Diagram.png?raw=true" alt=">Mixer & Dispenser Block Diagram" width="500">
   <p>Mixer & Dispenser Block Diagram</p>
 </div>
 <br> <br>
 
 <div align="center">
-  <img src="https://via.placeholder.com/500" alt="Project Image" width="500">
+  <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Dehydrator%20Block%20Diagram.png?raw=true" alt="Dehydrator Block Diagram" width="500">
+  <p>Dehydrator Block Diagram</p>
 </div>
-Dehydrator Block Diagram
 
 ## Conceptual Design
 <div align="center">
-  <img src="https://via.placeholder.com/500" alt="Project Image" width="500">
+  <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Conceptual%20Design.png?raw=true" alt="Conceptual Design" width="500">
+  <p>Conceptual Design</p>
 </div>
-Conceptual Design
 
 ## Schematic Diagram
 <div align="center">
-  <img src="https://via.placeholder.com/500" alt="Project Image" width="500">
+  <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Mixer%20and%20Dispenser%20Schematic%20Diagram.jpg?raw=true" alt="Mixer & Dispenser Schematic Diagram" width="500">
+  <p>Mixer & Dispenser Schematic Diagram</p>
 </div>
-Mixer & Dispenser Schematic Diagram <br> <br>
+<br> <br>
 
 <div align="center">
-  <img src="https://via.placeholder.com/500" alt="Project Image" width="500">
+  <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Dehydrator%20Schematic%20Diagram.jpg?raw=true" alt="Dehydrator Schematic Diagram" width="500">
+  <p>Dehydrator Schematic Diagram</p>
 </div>
-Dehydrator Schematic Diagram
 
 ## The Prototype
 <div align="center">
-  <img src="https://via.placeholder.com/500" alt="Project Image" width="500">
+  <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Actual%20Prototype.png?raw=true" alt="Actual Prototype" width="500">
+  <p>Actual Prototype</p>
 </div>
-Actual Prototype
 
 ## Recommendations
 The MCU-Based Mango Fruit Leather Machine is designed to help mango farmers in Pila, Laguna, effectively utilize excess mangoes that would otherwise go to waste. This utilization of the machine supports better resource management and contributes to the sustainability of local agriculture, providing a practical solution to the problem of excess fruit during peak harvest seasons. To enhance the performance and effectiveness of the MCU-Based Mango Fruit Leather Machine, several improvements have been recommended. Based on thorough testing and evaluation by the researchers, the following recommendations have been proposed to enhance the machine's performance and effectiveness.
