@@ -9,7 +9,7 @@ The machine demonstrated the ability to precisely dispense ingredients, signific
   <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Mixer%20and%20Dispenser%20Block%20Diagram.png?raw=true" alt=">Mixer & Dispenser Block Diagram" width="500">
   <p>Mixer & Dispenser Block Diagram</p>
 </div>
-<br> <br>
+<br>
 
 <div align="center">
   <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Dehydrator%20Block%20Diagram.png?raw=true" alt="Dehydrator Block Diagram" width="500">
@@ -27,7 +27,7 @@ The machine demonstrated the ability to precisely dispense ingredients, signific
   <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Mixer%20and%20Dispenser%20Schematic%20Diagram.jpg?raw=true" alt="Mixer & Dispenser Schematic Diagram" width="500">
   <p>Mixer & Dispenser Schematic Diagram</p>
 </div>
-<br> <br>
+<br>
 
 <div align="center">
   <img src="https://github.com/tomohirokenshi/mango-fruit-leather-machine/blob/main/Dehydrator%20Schematic%20Diagram.jpg?raw=true" alt="Dehydrator Schematic Diagram" width="500">
